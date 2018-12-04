@@ -36,12 +36,14 @@ object Day2 {
     return twos * threes
   }
 
-  def getDistance(str1: String, str2: String) = {
-      str1.zip(str2).count(k=> k._1 != k._2)
-  }
-
   def solutionPartTwo: String = {
-      ""
+    val range = 0 until input.head.length
+    range.map(v => {
+      input.map(_.drop(v))
+      .groupBy(identity)
+      .mapValues(_.size)
+      .head
+    })
+    ""
   }
-
 }
